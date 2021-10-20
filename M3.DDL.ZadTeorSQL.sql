@@ -26,3 +26,4 @@ added_by text default ('admin'),
 constraint sales_over_1k check (sales_amount > 1000)
 )
 
+alter table training_zs.sales add foreign key (product_id) references training_zs.products(id) on delete cascade
