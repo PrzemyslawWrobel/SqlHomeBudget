@@ -1,31 +1,44 @@
-create schema training;
+CREATE SCHEMA IF NOT EXISTS training;
 
-alter schema training rename to training_zs;
+ALTER SCHEMA training RENAME TO training_zs;
 
-
-create table training_zs.products (
-id int,
-production_qty numeric (50, 2), 
-product_name varchar (100),
-product_code varchar (10),
-description text,
-manufacturing_date date
+DROP TABLE IF EXISTS training_zs.produts;
+CREATE TABLE IF NOT EXISTS  training_zs.produts (
+    id integer,
+    production_qty NUMERIC (
+        50,
+        2
+    ),
+    product_name varchar (100),
+    product_code varchar (10),
+    description TEXT,
+    manufacturing_date date
 );
 
-alter table training_zs.products add primary key (id);
+ALTER TABLE training_zs.produts ADD PRIMARY KEY (id);
 
-drop table if exists training_zs.products;
+--DROP TABLE IF EXISTS training_zs.produts;
 
-create table training_zs.sales (
-id int primary key,
-sales_date timestamp not null,
-sales_amount numeric (38, 2), 
-sales_qty numeric (10, 2),
-product_id int,
-added_by text default ('admin'),
-constraint sales_over_1k check (sales_amount > 1000)
+CREATE TABLE training_zs.sales (
+    id int PRIMARY KEY,
+    sales_date timestamp NOT NULL,
+    sales_amount NUMERIC (
+        38,
+        2
+    ),
+    sales_qty NUMERIC (
+        10,
+        2
+    ),
+    product_id int,
+    added_by TEXT DEFAULT ('admin'),
+    CONSTRAINT sales_over_1k CHECK (
+        sales_amount > 1000
+    )
 );
 
-alter table training_zs.sales add foreign key (product_id) references training_zs.products(id) on delete cascade;
+ALTER TABLE training_zs.sales ADD FOREIGN KEY (product_id) REFERENCES training_zs.produts(id) ON
+DELETE
+    CASCADE;
 
-drop schema training_zs cascade;
+DROP SCHEMA training_zs CASCADE
