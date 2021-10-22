@@ -7,7 +7,9 @@ CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_owner(
     owner_name varchar  ( 50 ) NOT NULL ,
     owner_desc varchar ( 250 ),
     user_login integer NOT NULL ,
-    active boolean NOT NULL DEFAULT true
+    active boolean NOT NULL DEFAULT TRUE,
+    insert_date timestamp DEFAULT current_timestamp,
+    update_date timestamp DEFAULT current_timestamp
 );
 
 DROP TABLE IF EXISTS expence_tracker.transaction_bank_accaunts;
