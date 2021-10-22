@@ -32,3 +32,14 @@ CREATE TABLE IF NOT EXISTS expence_tracker.transaction_category(
     update_date timestamp DEFAULT current_timestamp
 );
 
+DROP TABLE IF EXISTS expence_tracker.transaction_subcategory;
+CREATE TABLE IF NOT EXISTS expence_tracker.transaction_subcategory(
+    id_trans_subcat integer CONSTRAINT id_trans_cat PRIMARY KEY,
+    id_trans_cat integer,
+    subcategory_name varchar  ( 50 ) NOT NULL ,
+    subcategory_description varchar ( 250 ),
+    active boolean NOT NULL DEFAULT TRUE,
+    insert_date timestamp DEFAULT current_timestamp,
+    update_date timestamp DEFAULT current_timestamp
+);
+
