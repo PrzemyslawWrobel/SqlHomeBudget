@@ -12,6 +12,20 @@ CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_owner(
     update_date timestamp DEFAULT current_timestamp
 );
 
+DROP TABLE IF EXISTS expence_tracker.bank_accaunt_types;
+CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_types(
+    id_ba_type integer CONSTRAINT id_ba_type PRIMARY KEY,
+    ba_type varchar  ( 50 ) NOT NULL ,
+    ba_desc varchar ( 250 ),
+    active boolean NOT NULL DEFAULT TRUE,
+    is_common_account boolean NOT NULL DEFAULT TRUE,
+    id_ba_own integer,
+    insert_date timestamp DEFAULT current_timestamp,
+    update_date timestamp DEFAULT current_timestamp
+);
+
+
+
 DROP TABLE IF EXISTS expence_tracker.transaction_bank_accaunts;
 CREATE TABLE IF NOT EXISTS expence_tracker.transaction_bank_accaunts(
     id_trans_ba integer CONSTRAINT id_trans_ba PRIMARY KEY,
