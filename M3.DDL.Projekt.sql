@@ -24,7 +24,20 @@ CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_types(
     update_date timestamp DEFAULT current_timestamp
 );
 
-
+DROP TABLE IF EXISTS expence_tracker.transactions;
+CREATE TABLE IF NOT EXISTS expence_tracker.transactions(
+    id_transaction integer CONSTRAINT id_transaction PRIMARY KEY,
+    id_trans_ba integer,
+    id_trans_cat integer,
+    id_trans_subcat integer,
+    id_trans_type integer,
+    id_user integer,
+    transaction_date date DEFAULT current_date,
+    transaction_value NUMERIC (9,2),
+    transaction_description TEXT,
+    insert_date timestamp DEFAULT current_timestamp,
+    update_date timestamp DEFAULT current_timestamp
+);
 
 DROP TABLE IF EXISTS expence_tracker.transaction_bank_accaunts;
 CREATE TABLE IF NOT EXISTS expence_tracker.transaction_bank_accaunts(
