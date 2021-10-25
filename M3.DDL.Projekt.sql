@@ -1,6 +1,6 @@
 DROP SCHEMA IF EXISTS expence_tracker;
 CREATE SCHEMA IF NOT EXISTS expence_tracker;
-
+--1
 DROP TABLE IF EXISTS expence_tracker.bank_accaunt_owner;
 CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_owner(
     id_ba_own integer CONSTRAINT id_ba_own PRIMARY KEY,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_owner(
     insert_date timestamp DEFAULT current_timestamp,
     update_date timestamp DEFAULT current_timestamp
 );
-
+--2
 DROP TABLE IF EXISTS expence_tracker.bank_accaunt_types;
 CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_types(
     id_ba_type integer CONSTRAINT id_ba_type PRIMARY KEY,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_types(
     insert_date timestamp DEFAULT current_timestamp,
     update_date timestamp DEFAULT current_timestamp
 );
-
+--3
 DROP TABLE IF EXISTS expence_tracker.transactions;
 CREATE TABLE IF NOT EXISTS expence_tracker.transactions(
     id_transaction integer CONSTRAINT id_transaction PRIMARY KEY,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.transactions(
     insert_date timestamp DEFAULT current_timestamp,
     update_date timestamp DEFAULT current_timestamp
 );
-
+--4
 DROP TABLE IF EXISTS expence_tracker.transaction_bank_accaunts;
 CREATE TABLE IF NOT EXISTS expence_tracker.transaction_bank_accaunts(
     id_trans_ba integer CONSTRAINT id_trans_ba PRIMARY KEY,
@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.transaction_bank_accaunts(
     update_date timestamp DEFAULT current_timestamp
 );
 
+--5
 DROP TABLE IF EXISTS expence_tracker.transaction_category;
 CREATE TABLE IF NOT EXISTS expence_tracker.transaction_category(
     id_trans_cat integer CONSTRAINT id_trans_cat PRIMARY KEY,
@@ -61,6 +62,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.transaction_category(
     update_date timestamp DEFAULT current_timestamp
 );
 
+--6
 DROP TABLE IF EXISTS expence_tracker.transaction_subcategory;
 CREATE TABLE IF NOT EXISTS expence_tracker.transaction_subcategory(
     id_trans_subcat integer CONSTRAINT id_trans_subcat PRIMARY KEY,
@@ -72,6 +74,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.transaction_subcategory(
     update_date timestamp DEFAULT current_timestamp
 );
 
+--7
 DROP TABLE IF EXISTS expence_tracker.transaction_type;
 CREATE TABLE IF NOT EXISTS expence_tracker.transaction_type(
     id_trans_type integer CONSTRAINT id_trans_type PRIMARY KEY,
@@ -82,6 +85,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.transaction_type(
     update_date timestamp DEFAULT current_timestamp
 );
 
+--8
 DROP TABLE IF EXISTS expence_tracker.users;
 CREATE TABLE IF NOT EXISTS expence_tracker.users(
     id_user integer CONSTRAINT id_user PRIMARY KEY,
