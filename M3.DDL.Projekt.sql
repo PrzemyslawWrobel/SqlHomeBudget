@@ -82,5 +82,16 @@ CREATE TABLE IF NOT EXISTS expence_tracker.transaction_type(
     update_date timestamp DEFAULT current_timestamp
 );
 
+DROP TABLE IF EXISTS expence_tracker.users;
+CREATE TABLE IF NOT EXISTS expence_tracker.users(
+    id_user integer CONSTRAINT id_user PRIMARY KEY,
+    user_login varchar  ( 25 ) NOT NULL ,
+    user_name varchar  ( 50 ) NOT NULL ,
+    user_password varchar  ( 100 ) NOT NULL ,
+    password_salt varchar  ( 100 ) NOT NULL ,
+    active boolean NOT NULL DEFAULT TRUE,
+    insert_date timestamp DEFAULT current_timestamp,
+    update_date timestamp DEFAULT current_timestamp
+);
 
  
