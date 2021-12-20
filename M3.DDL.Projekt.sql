@@ -1,4 +1,6 @@
-DROP SCHEMA IF EXISTS expence_tracker;
+DROP SCHEMA IF EXISTS expence_tracker CASCADE ;
+-- Usuwanie schematu w opcji CASCADE w sumie nie wiem jak zadzia³a to polecenie je¿eli by dane by³y
+-- pobierane dopowi¹zanych  tabel w tym lub innym schemacie
 CREATE SCHEMA IF NOT EXISTS expence_tracker;
 --1
 DROP TABLE IF EXISTS expence_tracker.bank_accaunt_owner;
@@ -15,6 +17,7 @@ CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_owner(
 DROP TABLE IF EXISTS expence_tracker.bank_accaunt_types;
 CREATE TABLE IF NOT EXISTS expence_tracker.bank_accaunt_types(
     id_ba_type integer CONSTRAINT id_ba_type PRIMARY KEY,
+    id_ba_own integer CONSTRAINT ,
     ba_type varchar  ( 50 ) NOT NULL ,
     ba_desc varchar ( 250 ),
     active boolean NOT NULL DEFAULT TRUE,

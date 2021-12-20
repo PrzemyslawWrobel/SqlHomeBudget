@@ -1,0 +1,29 @@
+--zad1
+CREATE ROLE user_training  WITH LOGIN SUPERUSER PASSWORD 'MojeSilneHas³o';
+--zad2
+CREATE SCHEMA training AUTHORIZATION user_training ;
+--zad3
+DROP  ROLE user_training;
+--zad4
+REASSIGN OWNED BY user_training TO postgres;
+DROP OWNED BY user_training;
+DROP  ROLE user_training;
+
+--zad5
+CREATE ROLE reporting_ro;
+GRANT CONNECT ON DATABASE postgres TO reporting_ro;
+GRANT USAGE, CREATE ON SCHEMA training TO reporting_ro;
+GRANT SELECT, UPDATE, DELETE ON ALL TABLES IN SCHEMA training TO reporting_ro;
+
+--zad6
+CREATE ROLE reporting_user  WITH LOGIN PASSWORD 'MojeSilneHas³o!';
+GRANT reporting_ro TO reporting_user;
+
+--zad7
+CREATE TABLE training.test_2 (id integer);
+
+--zad8
+REVOKE CREATE ON SCHEMA training FROM reporting_ro;
+--zad9
+CREATE TABLE training.test_3 (id integer);
+CREATE TABLE public.test_4 (id integer);
